@@ -11,7 +11,7 @@ export const PropertiesTableCaption = styled.caption`
 `;
 
 export const PropertyCell = styled.td<{ kind?: string }>`
-  border-left: 1px solid ${props => props.theme.schema.linesColor};
+  border-left: 0px solid ${props => props.theme.schema.linesColor};
   box-sizing: border-box;
   position: relative;
   padding: 10px 10px 10px 0;
@@ -21,7 +21,7 @@ export const PropertyCell = styled.td<{ kind?: string }>`
     border-left-width: 0;
     background-position: top left;
     background-repeat: no-repeat;
-    background-size: 1px 100%;
+    background-size: 0px 100%;
   }
 
   tr:first-of-type > & {
@@ -29,16 +29,16 @@ export const PropertyCell = styled.td<{ kind?: string }>`
       to bottom,
       transparent 0%,
       transparent 22px,
-      ${props => props.theme.schema.linesColor} 22px,
-      ${props => props.theme.schema.linesColor} 100%
+      transparent 22px,
+      transparent 100%
     );
   }
 
   tr.last > & {
     background-image: linear-gradient(
       to bottom,
-      ${props => props.theme.schema.linesColor} 0%,
-      ${props => props.theme.schema.linesColor} 22px,
+      transparent 0%,
+      transparent 22px,
       transparent 22px,
       transparent 100%
     );
@@ -63,6 +63,8 @@ export const PropertyNameCell = styled(PropertyCell)`
   line-height: 20px;
   white-space: nowrap;
   font-size: 0.929em;
+  font-weight: bold;
+  color: #565656;
   font-family: ${props => props.theme.typography.code.fontFamily};
 
   &.deprecated {
@@ -75,12 +77,16 @@ export const PropertyNameCell = styled(PropertyCell)`
 `;
 
 export const PropertyDetailsCell = styled.td`
-  border-bottom: 1px solid #9fb4be;
+  border-bottom: 0px solid #efefef;
   padding: 10px 0;
   width: ${props => props.theme.schema.defaultDetailsWidth};
   box-sizing: border-box;
 
   tr.expanded & {
+    border-bottom: none;
+  }
+
+  tr.last & {
     border-bottom: none;
   }
 `;
@@ -118,7 +124,8 @@ export const PropertiesTable = styled.table`
   border-radius: 3px;
   font-size: ${props => props.theme.typography.fontSize};
 
-  border-spacing: 0;
+  border-spacing: 10px;
+  border: 1px solid #eaeaeabf;
   width: 100%;
 
   > tr {

@@ -51,18 +51,18 @@ export class Field extends React.Component<FieldProps> {
         kind={kind}
         title={name}
       >
-        <PropertyBullet />
+        {/* <PropertyBullet /> */}
         {name}
         <ShelfIcon direction={expanded ? 'down' : 'right'} />
         {required && <RequiredLabel> required </RequiredLabel>}
       </ClickablePropertyNameCell>
     ) : (
-      <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
-        <PropertyBullet />
-        {name}
-        {required && <RequiredLabel> required </RequiredLabel>}
-      </PropertyNameCell>
-    );
+        <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
+          {/* <PropertyBullet /> */}
+          {name}
+          {required && <RequiredLabel>*</RequiredLabel>}
+        </PropertyNameCell>
+      );
 
     return (
       <>
