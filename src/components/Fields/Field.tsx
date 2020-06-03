@@ -58,7 +58,7 @@ export class Field extends React.Component<FieldProps> {
       </ClickablePropertyNameCell>
     ) : (
         <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
-          {/* <PropertyBullet /> */}
+          {false && <PropertyBullet />}
           {name}
           {required && <RequiredLabel>*</RequiredLabel>}
         </PropertyNameCell>
